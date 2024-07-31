@@ -1,0 +1,23 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: productsbackend
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: productsbackend
+    spec:
+      containers:
+      - name: productsbackend
+        image: [YOUR DOCKER USER NAME]/productservice:latest
+        ports:
+        - containerPort: 80
+        env:
+        - name: ASPNETCORE_URLS
+          value: http://*:80
+  selector:
+    matchLabels:
+      app: productsbackend
