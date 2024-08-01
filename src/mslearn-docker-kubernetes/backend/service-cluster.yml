@@ -4,10 +4,10 @@ metadata:
   name: products-cluster-service
   namespace: default
   labels:
-    app: productsbackend
+    app: products
 spec:
   selector:
-    app: productsbackend
+    app: products
   ports:
     - protocol: TCP
       port: 80
