@@ -1,0 +1,19 @@
+# ingress.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: store-ingress
+  annotations:
+    kubernetes.io/ingress.class: addon-http-application-routing
+spec:
+  rules:
+  - host: store.221e1cebec8b45349d0f.spaincentral.aksapp.io
+    http:
+      paths:
+      - path: / # Which path is this rule referring to
+        pathType: Prefix
+        backend: # How the ingress will handle the requests
+          service:
+            name: store-cluster-service # Which service the request will be forwarded to
+            port: 
+              name: http # Which port in that service
